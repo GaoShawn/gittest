@@ -1,0 +1,24 @@
+Docker是一个构建在LXC(linux container)之上的,基于进程容器的轻量级VM解决方案. Docker的初衷是将各种应用程序和他们所依赖的运行环境打包成标准的image, 该image可以运行在任何安装了docker的平台上。这个概念我们之前就已经接触过，我们可以打包VM文件并将其放在任何安装了VMware的系统上运行。与VM文件不同的是docker的image中不包括kernel。Docker和VM相比有着众多的优势，首先Docker可以实现秒级启动，可以实现一台主机运行数千个Docker容器，大幅提升了对系统资源的利用率。
+Docker的实质是使用linux container，是对内核的虚拟化，不需要hypervisor的支持。通过cgroup机制对不同的container内运行的应用程序进行和隔离，权限分配和管理。每个container有自己的PID进程，文件系统，net网络，IPC，主机名等。Docker是对LXC的一个高级封装，提供了方便使用LXC的接口。不过Docker额外提供了统一的打包部署，历史版本控制，Image共享发布等。
+Docker自从2013年启动发布以来，展现了良好的发展势头.百度在2013.10就以及已经使用docker支持其BAE平台的Pass服务了。不过目前的官方声明中明确表示只linux kernel3.8以后的版本，且只支持64位的系统。不过也可以找到docker的32安装包。比如我在自己的32为ubuntu 14.04上就安装成功了，可以从github（https://github.com/docker-32bit）上下载对应的脚本,直接运行build-image.sh即可。也可以具体实现参考http://m.blog.csdn.net/blog/zqxnum1/42063521. 
+
+64位系统上安装docker：
+$ sudo apt-get update
+$ sudo apt-get install -y docker.io
+$ sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
+$ sudo sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
+
+docker images 可以显示当前docker中安装了的镜像。
+docker run -t -i [name] 可以运行特定的image 
+docker rmi [name] or docker rmi -f [image id] 用于删除一个镜像
+
+为了对比Docker与lxc，在这里我也安装也lxc。
+sudo apt-get install lxc 用于安装lxc；
+sudo apt-get install libcgroup 安装cgroup库
+这时候在/usr/share/lxc/templates中会有一些container模板。
+sudo lxc-create -n temp -t ubuntu 创建一个名为temp，以ubuntu为模板的container
+sudo lxc-start -n temp 开启这个container，会与该终端绑定
+sudo lxc-stop -n temp 终止名为temp的container
+
+
+

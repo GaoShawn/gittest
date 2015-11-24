@@ -1,0 +1,4 @@
+1, gem5中使用一个函数组来模拟所有的系统调用函数，当程序调用malloc的时候去栈区申请空间先去进程中管理的堆中查找，当堆的空间不足时调用brk函数向系统申请空间。在gem5中通过调用syscall_emul中的brkFunc来实现。
+2, brkFunc 调用process.cc中的p->allocateTextMem来分配新的物理页;
+3, 之后调用system.cc中的allocTextPhysPages(npages)来分配寻找空闲的物理页；
+4, 在新找到的物理页的地址返回后，调用page_table.cc中的map函数来进行页表的的关联。
