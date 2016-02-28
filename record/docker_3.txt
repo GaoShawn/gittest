@@ -28,7 +28,7 @@ docker中镜像的创建：1.可以提交当前运行的容器，从而生成一
 		在后台运行容器： 添加-d参数，表示该容器在后台运行。
 	sudo docker ps显示当前正在运行的容器.
 	sudo docker ps -a显示当前存在的且已经停止了的容器。
-	sudo docker -i start CONTAINER_ID可以重启一个容器，并与当前的终端联系起来。
+	sudo docker start -i CONTAINER_ID可以重启一个容器，并与当前的终端联系起来。
 	sudo docker attach CONTAINER_ID 将当前终端与一个后台运行的container连下起来
 	sudo docker export CONTAINER_ID > ubuntu.tar导出当前容器的快照到本地文件。
 	cat ubuntu.tar | sudo docker import - test/ubuntu:v1.0 将一个文件快照导入到docker中形成一个新的image
