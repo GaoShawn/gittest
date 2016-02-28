@@ -11,6 +11,11 @@ $ sudo sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
 docker images 可以显示当前docker中安装了的镜像。
 docker run -t -i [name] 可以运行特定的image 
 docker rmi [name] or docker rmi -f [image id] 用于删除一个镜像
+sudo docker search ubuntu:14.04 是在默认的docker hub中搜索ubuntu
+sudo docker commit -m "haha my first" -a "gaoxiang" f5170e1beecc gaoxiang/ubuntu:14.04 我们可以在容器中进行修改，在修改完成后可以使用commit命令将修改后的容器发布为一个镜像，-m 为提示内容 -a 声明作者
+sudo docker login 登陆在的docker hub中的账户
+docker tag cdd9d233d81d gaoxiang/xiang 为新的image打上标签
+sudo docker push gaoxiang/xiang 将该image上传到官方hub中的私有仓库中
 
 为了对比Docker与lxc，在这里我也安装也lxc。
 sudo apt-get install lxc 用于安装lxc；

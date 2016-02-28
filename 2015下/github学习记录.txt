@@ -39,9 +39,12 @@ git pull origin dev来获取远程的dev分支
 
 标签管理
 发布一个版本时，我们通常先在版本库中打一个标签，这样，就唯一确定了打标签时刻的版本。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。所以，标签也是版本库的一个快照。
-创建标签： git tag v0.0
+创建标签： git tag v0.0 默认为HEAD，也可以指定一个commit id；
 显示标签： git tag
 创建标签时添加版本信息： git tag -a v0.1 -m "version 0.1 released" commitId
+将本地标签推送到远程： git push origin v1.0 或者使用 git push origin --tags将本地所有的未同步的标签推送到远程
+
+
 
 
 

@@ -32,6 +32,7 @@ docker中镜像的创建：1.可以提交当前运行的容器，从而生成一
 	sudo docker attach CONTAINER_ID 将当前终端与一个后台运行的container连下起来
 	sudo docker export CONTAINER_ID > ubuntu.tar导出当前容器的快照到本地文件。
 	cat ubuntu.tar | sudo docker import - test/ubuntu:v1.0 将一个文件快照导入到docker中形成一个新的image
+	sudo docker rm 删除一个非运行状态的容器
 
 
 
