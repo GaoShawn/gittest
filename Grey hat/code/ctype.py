@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+from ctypes import *
+libc = CDLL("libc.so.6")
+libc.printf("test: %s\n","hello world!")
+
+

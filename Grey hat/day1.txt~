@@ -1,0 +1,14 @@
+ctype库赋予了python类似于C语言一样的底层操作功能，同时也保存了动态语言便捷的本性。使你能够轻而易举地调用动态链接库中的导出函数。Ctype包含了三种动态链接库的加载方式：cdll(),windll(),oledll()，分别用于加载不同格式的动态库（.dll或.so）。
+为了方便C，python和ctypes之间数据类型的转换，ctypes为每个C中的数据类型都做了对应，例如int对应到c_int,char对应到c_char.对于c中需要传入指针类型参数的函数，ctype提供了byref函数解决这个问题。例如function(byref(parameter))。
+对于c中的结构体，python中有一种特殊的定义方式。例如
+struct beer_recipe{
+	int amt_barley;
+	int amt_water;
+}
+对应到python中就是
+class beer_recipe(Structure){
+	_fields_ = {
+	("amt_barley",c_int),
+	("amt_water",c_int),
+	}
+}
