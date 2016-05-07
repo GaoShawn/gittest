@@ -1,2 +1,0 @@
-Apache是普通的服务器，本身只能支持普通网页。所谓普通网页是指网页中没有后台数据库，没有交互，访问网页没有参数传递的静态网页。不过Apache可以通过插件支持php，还可以与Tomcat联通。此时Apache只支持静态网页处理，而Tomcat处理向php,cgi,jsp等动态网页的内容。
-Tomcat是由Apache软件基金会下属的Jakarta项目开发的一个Servlet容器，按照Sun Microsystems提供的技术规范，实现了对Servlet和JavaServer Page（JSP）的支持，并提供了作为Web服务器的一些特有功能，如Tomcat管理和控制平台、安全域管理和Tomcat阀等。由于Tomcat本身也内含了一个HTTP服务器，它也可以被视作一个单独的Web服务器。
